@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-varela{
+    font-family: 'Varela Round', sans-serif;
+}
+
+.input-fixed-text{
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><text x="5" y="19" style="font: bold 16px; font-family: Varela Round, sans-serif;">@</text></svg>') no-repeat;
+    background-color: white;
+    box-sizing: border-box;
+    font: 16px 'Varela Round', sans-serif;
+    height: 30px;
+    padding-left: 23px;
+}
