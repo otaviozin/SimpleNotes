@@ -7,7 +7,7 @@ const verifyComplete = async (email) => {
     const emailSnap = await getDoc(emailRef);
     
     if(emailSnap.data().complete){
-        Router.push('/home');
+        return 200;
     }
     else{
         Router.push('/register/end');

@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
                 </style>
             </Head>
             <Component {...pageProps} />
-            <Script src='https://kit.fontawesome.com/137d032f44.js' crossorigin='anonymous' />
+            <Script src='https://kit.fontawesome.com/aef06a57f1.js' crossorigin='anonymous' />
         </div>
     );
 }

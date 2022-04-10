@@ -14,3 +14,11 @@
     height: 30px;
     padding-left: 23px;
 }
+
+.note-height{
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; 
+}

@@ -47,7 +47,7 @@ export default function SignIn(){
 			<div className='grid lg:grid-cols-2 lg:h-screen font-varela'>
 				<div className='bg-teal-500 lg:text-center p-2 lg:py-32'>
 					<div className='lg:grid flex justify-center gap-3'>
-						<i className='far fa-sticky-note text-4xl lg:text-15xl my-auto font-semibold'></i>
+						<i className='fa-regular fa-note-sticky text-4xl lg:text-15xl my-auto'></i>
 						<h1 className='lg:text-8xl text-4xl font-semibold'>Simple Notes</h1>
 					</div>
 				</div>
