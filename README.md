@@ -12,8 +12,7 @@ Está no começo do caminho, mas terá um grande desenvolvimento pela frente.
 Feito com Next.js, Tailwind e Firebase.
 
 # Atualizações
-- Refazendo todo o código para deixar organizado.
-- Aplicando novos conceitos de design.
+- Adicionado a função de fazer e postar notas.
 
 # Desenvolvedor
 Você pode me apoiar seguindo no [Twitter](https://twitter.com/_otaviozin) ou aqui mesmo no [GitHub](https://github.com/otaviozin) :)
