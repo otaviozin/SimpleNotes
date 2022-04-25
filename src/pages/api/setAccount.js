@@ -21,9 +21,13 @@ const completeAcc = async (auth, email, name, username) => {
         });
     
         const emailRef = doc(db, 'users', email);
+        const user = auth.currentUser;
         setDoc(emailRef, {
             name: name,
-            username: username
+            displayName: username,
+            uid: user.uid,
+            email: user.email,
+            photoUrl: user.photoURL
         }, { merge: true });
         await updateDoc(emailRef, {
             complete: true

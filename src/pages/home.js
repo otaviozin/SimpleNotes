@@ -6,7 +6,7 @@ import { logOut } from './api/signOut';
 import { onAuthStateChanged } from 'firebase/auth';
 import { userAuth } from '../utils/firebase';
 import { verifyComplete } from './api/complete';
-import { getNotes } from './api/getNotes';
+import { getAllNotes } from './api/getNotes';
 import { useState } from 'react';
 
 export default function Home(){
@@ -16,7 +16,7 @@ export default function Home(){
     useEffect(() => {
         // GET NOTES AND SET STATE
         const res = async () => {
-            const note = await getNotes();
+            const note = await getAllNotes();
             setNotes(note);
         }
         res();

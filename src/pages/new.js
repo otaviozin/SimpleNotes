@@ -33,13 +33,13 @@ export default function NewNote(){
 
 	const valueInput = e => setNote({...note, [e.target.name]: e.target.value});
 
-    const postNote = (e) => {
+    const postNote = () => {
         try{
             newNotes(note.title, note.content, note.owner);
             Router.push('/home');
         }
         catch(error){
-            console.log(error);
+            //console.log(error);
         }
     } 
 
@@ -47,10 +47,10 @@ export default function NewNote(){
         <div className='bg-neutral-900 h-screen'>
             <div className='bg-neutral-900 h-max text-white font-varela'>
                 <Navbar />
-                <form className='grid w-80 mx-auto mt-6'>
+                <form className='grid w-80 lg:w-auto mx-auto mt-6 lg:m-6'>
                     <label>Title</label>
                     <input
-                        className='p-1 pl-3 border border-teal-500 rounded bg-neutral-800 placeholder:text-neutral-400 placeholder:italic'
+                        className='p-1 pl-3 lg:w-96 border border-teal-500 rounded bg-neutral-800 placeholder:text-neutral-400 placeholder:italic'
                         placeholder='Market list'
                         maxLength={30}
                         type='text'

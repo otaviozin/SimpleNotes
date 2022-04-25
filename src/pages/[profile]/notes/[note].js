@@ -28,6 +28,7 @@ export default function Note(){
         }
         res();
 
+        
     }, [route.isReady, route.query.note]);
 
     return(
