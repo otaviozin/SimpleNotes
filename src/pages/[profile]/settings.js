@@ -20,14 +20,28 @@ export default function Settings(){
         phoneNum: '',
         password: ''
     });
-    const [userImg, setUserImg] = useState('https://cdn.iconscout.com/icon/free/png-256/user-1648810-1401302.png');
+    const [currentImg, setCurrentImg] = useState('https://cdn.iconscout.com/icon/free/png-256/user-1648810-1401302.png');
+
+    const [imgUrl, setImgUrl] = useState({imgUrl: ''});
 
 	const valueInput = e => setProfile({...profile, [e.target.name]: e.target.value});
+	const imgInput = e => {
+        setImgUrl({...imgUrl, [e.target.name]: e.target.value});
+    }
 
     const update = async (e) => {
         e.preventDefault();
-        updateUser(userAuth, profile.displayName, profile.email);
+        updateUser(userAuth, profile.name, profile.displayName, profile.email, profile.password, imgUrl.imgUrl);
     };
+
+    const signOut = () => {
+        try{
+            logOut(userAuth);
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
 
     useEffect(() => {
         if(!route.isReady) return;
@@ -35,7 +49,7 @@ export default function Settings(){
         const data = async () => {
             const res = await getUser(route.query.profile);
             setProfile(res[0]);
-            if(res[0].photoUrl!==null) setUserImg(res[0].photoUrl);
+            if(res[0].photoUrl!==null) setCurrentImg(res[0].photoUrl);
         }
         data();
 
@@ -60,18 +74,24 @@ export default function Settings(){
                 <div className='grid mt-5'>
                     <Image
                         className='object-contain'
-                        src={userImg}
+                        src={currentImg}
                         height={128}
                         width={128}
                         alt='Profile image'
                     />
+                    <button
+                        className='bg-red-500 p-1 w-32 mx-auto my-4 rounded-full'
+                        type='submit'
+                        onClick={signOut}
+                    >
+                        Logout
+                    </button>
                     <form className='grid mx-5'>
                         <label>Name</label>
                         <input
                             className='p-1 pl-3 lg:w-96 border border-teal-500 rounded bg-neutral-800 placeholder:text-neutral-400 placeholder:italic'
                             type='text'
                             name='name'
-                            defaultValue={profile.name}
                             onChange={valueInput}
                             value={profile.name}
                         />
@@ -80,7 +100,6 @@ export default function Settings(){
                             className='p-1 pl-3 lg:w-96 border border-teal-500 rounded bg-neutral-800 placeholder:text-neutral-400 placeholder:italic'
                             type='text'
                             name='displayName'
-                            defaultValue={profile.displayName}
                             onChange={valueInput}
                             value={profile.displayName}
                         />
@@ -89,25 +108,22 @@ export default function Settings(){
                             className='p-1 pl-3 lg:w-96 border border-teal-500 rounded bg-neutral-800 placeholder:text-neutral-400 placeholder:italic'
                             type='email'
                             name='email'
-                            defaultValue={profile.email}
                             onChange={valueInput}
                             value={profile.email}
                         />
-                        <label className='mt-3'>Phone number</label>
+                        <label className='mt-3'>Photo URL</label>
                         <input
                             className='p-1 pl-3 lg:w-96 border border-teal-500 rounded bg-neutral-800 placeholder:text-neutral-400 placeholder:italic'
-                            type='number'
-                            name='phoneNum'
-                            defaultValue={profile.phoneNum}
-                            onChange={valueInput}
-                            value={profile.phoneNum}
+                            type='text'
+                            name='imgUrl'
+                            onChange={imgInput}
+                            value={imgUrl.imgUrl}
                         />
                         <label className='mt-3'>Password</label>
                         <input
                             className='p-1 pl-3 lg:w-96 border border-teal-500 rounded bg-neutral-800 placeholder:text-neutral-400 placeholder:italic'
                             type='password'
                             name='password'
-                            defaultValue={profile.password}
                             onChange={valueInput}
                             value={profile.password}
                         />

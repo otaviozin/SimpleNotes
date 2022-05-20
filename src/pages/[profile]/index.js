@@ -72,7 +72,7 @@ export default function Profile(){
                         height={128}
                         alt='Profile photo'
                     />
-                    <div className=''>
+                    <div>
                         <h1 className='text-2xl font-medium'>{profile.name}</h1>
                         <p className='text-xl font-light text-gray-500'>@{profile.displayName}</p>
                     </div>

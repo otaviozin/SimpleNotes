@@ -15,7 +15,8 @@ const getAllNotes = async () => {
 }
 
 const getUserNotes = async (username) => {
-    const q = query(collection(db, 'notes'), where('owner', '==', username));
+    const q = query(collection(db, 'notes'), where('owner', '==', username), orderBy('date', 'desc'));
+
     const querySnapshot = await getDocs(q);
 
     let notes = [];

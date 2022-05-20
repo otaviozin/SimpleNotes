@@ -22,3 +22,12 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical; 
 }
+
+.image-upload > input{
+    display: none;
+}
+
+.image-upload img{
+    width: 80px;
+    cursor: pointer;
+}

@@ -32,15 +32,6 @@ export default function Home(){
             }
         });
     }, []);
-    
-    const signOut = () => {
-        try{
-            logOut(userAuth);
-        }
-        catch(error){
-            console.log(error);
-        }
-    }
 
     return(
         <div className='bg-neutral-900 h-screen'>
@@ -62,13 +53,6 @@ export default function Home(){
                     ))
                     }
                 </div>
-                <button
-                    className='bg-red-500 p-1 rounded-full'
-                    type='submit'
-                    onClick={signOut}
-                >
-                    Logout
-                </button>
             </div>
         </div>
     );

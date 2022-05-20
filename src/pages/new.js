@@ -33,7 +33,8 @@ export default function NewNote(){
 
 	const valueInput = e => setNote({...note, [e.target.name]: e.target.value});
 
-    const postNote = () => {
+    const postNote = (e) => {
+        e.preventDefault();
         try{
             newNotes(note.title, note.content, note.owner);
             Router.push('/home');
